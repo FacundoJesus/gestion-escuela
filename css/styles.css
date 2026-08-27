@@ -102,14 +102,3 @@ input, select {
     font-size: 15px;
     font-family: inherit;
 }
-
-button {
-    background-color: lightblue;
-    border-radius: 5px;
-    border: 1px solid;
-}
-
-button:hover {
-    cursor: pointer;
-    background-color: aqua;
-}
