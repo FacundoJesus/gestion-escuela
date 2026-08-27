@@ -1,0 +1,111 @@
+/* --------1-vARIABLES DE COLOR--------*/
+:root
+{ /* aca se crean variables */
+    --color-fondo: #f4f6f8;
+    --color-suave: #26323d;
+    --color-tarjeta:#ffffff;
+    --color-borde:#dde3ea;
+    --color-texto: #26323d;
+}
+
+/**** ------------2-BASE DE LA PAGINA----------- ****/
+* {
+    box-sizing: border-box;
+}
+
+body
+{
+    /* margin= margen hacia afuera */
+    /* padding= margen hacia adentro */
+    /* padding= poner px o no es igual, y si son 3, los lados son iguales (valores del medio)*/
+    margin: 0;
+    padding: 0px 16px 48px;
+    font-family: system-ui, -apple-system,'Segoe UI',
+    Arial, sans-serif;
+    background-color: var(--color-fondo);
+    line-height: 1.5;
+    color:var(--color-texto);
+}
+
+/* -------------3-Encabezados y pie----------- */
+
+
+header {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 0 16px;
+}
+
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+
+
+.subtitulo
+{
+    margin: 4px 0 0;
+    color: var(--color-suave);
+}
+
+
+footer{
+    max-width: 860px;
+    margin: 24px auto 0;
+    color:var(--color-suave);
+    font-size: 14px;
+    text-align: center;
+}
+
+/***4. Tarjetas (cada seccion de la app es una tarjeta)***/
+main {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.tarjeta
+{
+    background-color: var(--color-tarjeta);
+    /* tamaño, tipo, color*/
+    border: 1px solid var(--color-borde);
+    /* para redondearla*/
+    border-radius: 10px;
+    padding: 20px;
+    /* separacion, un margen*/
+    margin-bottom: 20px;
+}
+.tarjeta h2{
+    margin: 0 0 16px;
+    font-size: 18px;
+}
+
+/* ----------5. Formularios-----------*/
+/*** Formulario ***/
+#formAlumno {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1 1 160px;
+}
+
+.campo label {
+    font-size: 13px;
+    color: var(--color-suave);
+}
+
+input, select {
+    padding: 9px 10px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+}
