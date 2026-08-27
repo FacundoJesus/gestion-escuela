@@ -1,6 +1,6 @@
-/* --------1-vARIABLES DE COLOR--------*/
-:root
-{ /* aca se crean variables */
+
+/**** ------------1. VARIABLES DE COLOR----------- ****/
+:root { /* aca se crean variables */
     --color-fondo: #f4f6f8;
     --color-suave: #26323d;
     --color-tarjeta:#ffffff;
@@ -8,41 +8,34 @@
     --color-texto: #26323d;
 }
 
-/**** ------------2-BASE DE LA PAGINA----------- ****/
+/**** ------------2. BASE DE LA PAGINA----------- ****/
 * {
     box-sizing: border-box;
 }
 
-body
-{
+body {
     /* margin= margen hacia afuera */
     /* padding= margen hacia adentro */
     /* padding= poner px o no es igual, y si son 3, los lados son iguales (valores del medio)*/
     margin: 0;
     padding: 0px 16px 48px;
-    font-family: system-ui, -apple-system,'Segoe UI',
-    Arial, sans-serif;
+    font-family: system-ui, -apple-system,'Segoe UI',Arial, sans-serif;
     background-color: var(--color-fondo);
     line-height: 1.5;
     color:var(--color-texto);
 }
 
-/* -------------3-Encabezados y pie----------- */
-
-
+/**** ------------3. ENCABEZADO Y PIE DE PAGINA----------- ****/
 header {
     max-width: 860px;
     margin: 0 auto;
     padding: 32px 0 16px;
 }
 
-
 header h1 {
     margin: 0;
     font-size: 28px;
 }
-
-
 
 .subtitulo
 {
@@ -50,8 +43,7 @@ header h1 {
     color: var(--color-suave);
 }
 
-
-footer{
+footer {
     max-width: 860px;
     margin: 24px auto 0;
     color:var(--color-suave);
@@ -59,7 +51,8 @@ footer{
     text-align: center;
 }
 
-/***4. Tarjetas (cada seccion de la app es una tarjeta)***/
+
+/**** ------------4. TARJETAS (CADA SECCION DE LA APP ES UNA TARJETA)----------- ****/
 main {
     max-width: 860px;
     margin: 0 auto;
@@ -76,13 +69,13 @@ main {
     /* separacion, un margen*/
     margin-bottom: 20px;
 }
-.tarjeta h2{
+
+.tarjeta h2 {
     margin: 0 0 16px;
     font-size: 18px;
 }
 
-/* ----------5. Formularios-----------*/
-/*** Formulario ***/
+/**** ------------5. FORMULARIOS----------- ****/
 #formAlumno {
     display: flex;
     flex-wrap: wrap;
@@ -108,4 +101,15 @@ input, select {
     border-radius: 6px;
     font-size: 15px;
     font-family: inherit;
+}
+
+button {
+    background-color: lightblue;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: aqua;
 }

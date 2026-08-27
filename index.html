@@ -1,76 +1,49 @@
 <html: lang="es">
-    <head> <!-- lo que aparece en la ventana, el cuadradito chiquito -->
-        <title> 
-            Gestión de escuela | clase 1 js
-        </title>
-        <!-- el idioma, tipo teclado, para que reconozca ñ y acentos -->
-        <meta charset="UTF-8"> 
-        <!-- para que no reescale o lo haga como quiera, en este caso se adapta a pantallas chicas sin alterar tamaños (reescala sin romper porporciones entiendo)-->
-        <meta name="viewport" content="width=devise-width,initial-scale=1.0"> 
-        <!--para unir con lo estetico (css) href= una ruta (relativa o absoluta) -->
-        <link rel="stylesheet" href="css/styles.css">
 
+    <head> 
+        <title>Gestión de escuela</title>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=devise-width,initial-scale=1.0"> 
+        <link rel="stylesheet" href="css/styles.css">
     </head>
+
     <body>
         <header>
-            <h1>
-                Gestión de escuela
-            </h1>
+            <h1>Gestión de escuela</h1>
             <p class="subtitulo">
                 Clase 1: Fundamentos de JavaScript
             </p>
         </header>  
     
+        <main>
+            <section class="tarjeta">
+                <h2>Cargar alumno</h2>
+                <form id="formAlumno" novalidate>
+                    <div>
+                        <label for="inputNombre">Nombre del alumno</label>
+                        <input type="text" id="inputNombre" placeholder="Ejemplo: Perez Gil" autocomplete="off">
+                    </div>
 
-    <main>
-        <section class="tarjeta">
-            <h2>
-                Cargar alumno
-            </h2>
-            <!-- el action es lo que pasa cuando le da a aceptar en el formulario, va al backend. La borramos porque no tenemos bdd -->
-            <!-- novalidate para que no valide aca el input... nose por que pero bueno-->
-            <form id="formAlumno" novalidate>
-                <div>
-                    <!-- el for es para relacionar label con input-->
-                     <!-- en este caso tocar el label te mete en la casilla de escribir-->
-                    <label for="input_nombre">
-                        Nombre del alumno
-                       
-                    </label>
-                    <input type="text" id="inputNombre" placeholder="Ejemplo: Perez Gil" autocomplete="off">
-                </div>
+                    <div>
+                        <label for="selectMateria">Materia</label>
+                        <select id="selectMateria"></select>
+                    </div>
 
-                <div>
-                    <label for="selectMateria">
-                        Materia
-                    </label>
-                    <select id="selectMateria">
-                    </select>
-                </div>
+                    <div>
+                        <label for="inputNota">Nota (1-10)</label>
+                        <input type="number" id="inputNota" min="1" max="10" step="1" placeholder="Ej. 8">
+                    </div>
 
-                <div>
-                    <label for="inputNota">
-                        Nota (1-10)
-                        <input type="number" id="input_nota" min="1" max="10" step="1" placeholder="Ej. 8">
-                    </label>
-                </div>
-                <!-- podria ser tipo submit o tipo button tambien, algun pequeño cambio tendra-->
-                <button type="submit">
-                    Agregar alumno
-                </button>
+                    <button type="submit">
+                        Agregar alumno
+                    </button>
+                </form>
 
-            </form>
+                <p id="mensaje" class="mensaje"></p>
+            </section>
 
-            <p id="mensaje" class="mensaje"></p>
-        </section>
+        </main>
 
-    </main>
-
-    
-
-
-
-
-</body>
+    </body>
     
 </html>
