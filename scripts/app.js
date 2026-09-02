@@ -36,4 +36,17 @@ const materias = [
 
 console.log(`Materias: ${materias.length} materias. La 
     primera es: ${materias[0]} y la última es: ${materias[materias.length - 1]}`);
+
+let alumnos = [
+    {
+        id: 1,
+        nombre: "Juan",
+        nota: 8,
+        materia: materias[0],
+        estado: "Aprobado"
+    }
+];
+
+let proximoId = 1;
+
 // #endregion
