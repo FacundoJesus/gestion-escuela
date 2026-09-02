@@ -55,12 +55,13 @@ let proximoId = 1;
 // El navegador convierte el HTML en un arbol de objetos llamado DOM (Document Object Model), que podemos manipular con JS
 // En ese árbol, la raíz se llama "document"
 // document.getElementById("algo") -> devuelve el elemento con el id "algo"
+// document.querySelector("#inputNombre") -> otra forma de pescar un elemento por su id
 const formAlumno = document.getElementById("formAlumno");
 const inputNombre = document.getElementById("inputNombre");
 const selectMateria = document.getElementById("selectMateria");
 const inputNota = document.getElementById("inputNota");
-
 const mensaje = document.getElementById("mensaje");
+
 const filtroMateria = document.getElementById("filtroMateria");
 const cuerpoTabla = document.getElementById("cuerpoTabla");
 
@@ -68,5 +69,6 @@ const cuerpoTabla = document.getElementById("cuerpoTabla");
 const totalAlumnos = document.getElementById("totalAlumnos");
 const promedioGeneral = document.getElementById("promedioGeneral");
 const totalAprobados = document.getElementById("totalAprobados");
+
 
 //#endregion
