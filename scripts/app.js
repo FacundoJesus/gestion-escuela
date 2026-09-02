@@ -22,4 +22,5 @@ const NOTA_MINIMA_APROBADO = 6;
 console.log("Escuela: " + nombreEscuela, "| tipo: " + typeof nombreEscuela);
 console.log("Año Lectivo: " + anioLectivo, "| tipo: " + typeof anioLectivo);
 console.log("Curso Activo: " + cursoActivo, "| tipo: " + typeof cursoActivo);
+/*templates: ligerales usa comillas invertidas o backsticks*/
 console.log(`Bienvenidos a la ${nombreEscuela} - Año Lectivo: ${anioLectivo}`);
