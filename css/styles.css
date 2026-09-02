@@ -6,6 +6,7 @@
     --color-tarjeta:#ffffff;
     --color-borde:#dde3ea;
     --color-texto: #26323d;
+    --color-principal: #2563eb;
 }
 
 /**** ------------2. BASE DE LA PAGINA----------- ****/
@@ -102,3 +103,14 @@ input, select {
     font-size: 15px;
     font-family: inherit;
 }
+
+input:focus, select:focus {
+    outline: 2px solid var(--color-principal);
+    outline-offset: 1px;
+}
+
+.campo-filtro {
+    max-width: 240px;
+    margin-bottom: 16px;
+}
+
