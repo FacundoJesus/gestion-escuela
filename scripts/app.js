@@ -56,6 +56,7 @@ let proximoId = 1;
 // En ese árbol, la raíz se llama "document"
 // document.getElementById("algo") -> devuelve el elemento con el id "algo"
 // document.querySelector("#inputNombre") -> otra forma de pescar un elemento por su id
+// document.querySelector(".tarjeta") -> El primero con css tarjeta
 const formAlumno = document.getElementById("formAlumno");
 const inputNombre = document.getElementById("inputNombre");
 const selectMateria = document.getElementById("selectMateria");
