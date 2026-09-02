@@ -71,12 +71,30 @@ const cuerpoTabla = document.getElementById("cuerpoTabla");
 const totalAlumnos = document.getElementById("totalAlumnos");
 const promedioGeneral = document.getElementById("promedioGeneral");
 const totalAprobados = document.getElementById("totalAprobados");
-
-
 // #endregion
 
 // #region Bloque 4: Funciones
 function cargarMaterias() {
-    selectMateria.innerHTML = "pepito";
+    selectMateria.innerHTML = "<option value=''>Seleccione una materia</option>";
+
+    filtroMateria.innerHTML = "<option value='todas'>Todas las materias</option>";
+
+    for (const materia of materias) {
+        const opcion = document.createElement("option");
+        opcion.value = materia;
+        opcion.textContent = materia;
+        selectMateria.appendChild(opcion);
+
+        const opcionFiltro = document.createElement("option");
+        opcionFiltro.value = materia;
+        opcionFiltro.textContent = materia;
+        filtroMateria.appendChild(opcionFiltro);
+    }
 }
-// #enregion
+
+cargarMaterias();
+//#endregion
+
+// #region Bloque 5: Condicionales y validaciones
+
+// #endregion
