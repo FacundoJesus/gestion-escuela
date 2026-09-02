@@ -15,3 +15,10 @@ var -> variable, se puede cambiar su valor, pero es una forma antigua de declara
 
 const nombreEscuela = "UTN - Facultad Regional Paraná";
 const anioLectivo = 2026;
+const cursoActivo = true;
+
+const NOTA_MINIMA_APROBADO = 6;
+
+console.log("Escuela: " + nombreEscuela, "| tipo: " + typeof nombreEscuela);
+console.log("Año Lectivo: " + anioLectivo, "| tipo: " + typeof anioLectivo);
+console.log("Curso Activo: " + cursoActivo, "| tipo: " + typeof cursoActivo);
