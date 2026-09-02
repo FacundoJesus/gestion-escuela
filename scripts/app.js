@@ -7,11 +7,11 @@ Bloque 5: Condicionales y validaciones
 Bloque 6: Eventos (Vamos a hacer que la página reaccione)
 */
 
-/* Bloque 1: Variables y tipos de datos
-const-> constante, no se puede cambiar su valor
-let-> variable, se puede cambiar su valor
-var -> variable, se puede cambiar su valor, pero es una forma antigua de declarar variables
-*/
+// #region Bloque 1: Variables y tipos de datos
+// const-> constante, no se puede cambiar su valor
+// let-> variable, se puede cambiar su valor
+// var -> variable, se puede cambiar su valor, pero es una forma antigua de declarar variables
+
 
 const nombreEscuela = "UTN - Facultad Regional Paraná";
 const anioLectivo = 2026;
@@ -24,7 +24,16 @@ console.log("Año Lectivo: " + anioLectivo, "| tipo: " + typeof anioLectivo);
 console.log("Curso Activo: " + cursoActivo, "| tipo: " + typeof cursoActivo);
 /*templates: ligerales usa comillas invertidas o backsticks*/
 console.log(`Bienvenidos a la ${nombreEscuela} - Año Lectivo: ${anioLectivo}`);
+// #endregion
 
-/* Bloque 2: Arreglos y objetos
+// #region Bloque 2: Arreglos y objetos
 
-*/
+const materias = [
+    "Matemática",
+    "Lengua", 
+    "Programación",
+    "Historia"
+];
+
+console.log("Materias: " + materias, "| tipo: " + typeof materias);
+// #endregion
