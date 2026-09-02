@@ -52,6 +52,7 @@ let proximoId = 1;
 // #endregion
 
 // #region Bloque 3: Pescar los elementos del HTML (del DOM)
+
 // El navegador convierte el HTML en un arbol de objetos llamado DOM (Document Object Model), que podemos manipular con JS
 // En ese árbol, la raíz se llama "document"
 // document.getElementById("algo") -> devuelve el elemento con el id "algo"
@@ -72,4 +73,10 @@ const promedioGeneral = document.getElementById("promedioGeneral");
 const totalAprobados = document.getElementById("totalAprobados");
 
 
-//#endregion
+// #endregion
+
+// #region Bloque 4: Funciones
+function cargarMaterias() {
+    selectMateria.innerHTML = "pepito";
+}
+// #enregion
