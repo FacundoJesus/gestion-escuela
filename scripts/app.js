@@ -14,3 +14,4 @@ var -> variable, se puede cambiar su valor, pero es una forma antigua de declara
 */
 
 const nombreEscuela = "UTN - Facultad Regional Paraná";
+const anioLectivo = 2026;
