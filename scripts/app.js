@@ -12,7 +12,6 @@ Bloque 6: Eventos (Vamos a hacer que la página reaccione)
 // let-> variable, se puede cambiar su valor
 // var -> variable, se puede cambiar su valor, pero es una forma antigua de declarar variables
 
-
 const nombreEscuela = "UTN - Facultad Regional Paraná";
 const anioLectivo = 2026;
 const cursoActivo = true;
@@ -35,5 +34,6 @@ const materias = [
     "Historia"
 ];
 
-console.log("Materias: " + materias, "| tipo: " + typeof materias);
+console.log(`Materias: ${materias.length} materias. La 
+    primera es: ${materias[0]} y la última es: ${materias[materias.length - 1]}`);
 // #endregion
