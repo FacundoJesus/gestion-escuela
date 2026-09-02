@@ -60,4 +60,13 @@ const inputNombre = document.getElementById("inputNombre");
 const selectMateria = document.getElementById("selectMateria");
 const inputNota = document.getElementById("inputNota");
 
+const mensaje = document.getElementById("mensaje");
+const filtroMateria = document.getElementById("filtroMateria");
+const cuerpoTabla = document.getElementById("cuerpoTabla");
+
+// Del footer:
+const totalAlumnos = document.getElementById("totalAlumnos");
+const promedioGeneral = document.getElementById("promedioGeneral");
+const totalAprobados = document.getElementById("totalAprobados");
+
 //#endregion
