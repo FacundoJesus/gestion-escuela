@@ -50,3 +50,14 @@ let alumnos = [
 let proximoId = 1;
 
 // #endregion
+
+// #region Bloque 3: Pescar los elementos del HTML (del DOM)
+// El navegador convierte el HTML en un arbol de objetos llamado DOM (Document Object Model), que podemos manipular con JS
+// En ese árbol, la raíz se llama "document"
+// document.getElementById("algo") -> devuelve el elemento con el id "algo"
+const formAlumno = document.getElementById("formAlumno");
+const inputNombre = document.getElementById("inputNombre");
+const selectMateria = document.getElementById("selectMateria");
+const inputNota = document.getElementById("inputNota");
+
+//#endregion
