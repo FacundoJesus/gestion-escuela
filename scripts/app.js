@@ -34,6 +34,13 @@ const materias = [
     "Historia"
 ];
 
+const docentes = [
+    "Gustavo Sturz",
+    "Ernesto Zapata Icart", 
+    "Fernando Filipuzzi",
+    "Facundo Fuminari"
+];
+
 console.log(`Materias: ${materias.length} materias. La 
     primera es: ${materias[0]} y la última es: ${materias[materias.length - 1]}`);
 
@@ -63,6 +70,7 @@ const inputNombre = document.getElementById("inputNombre");
 const selectMateria = document.getElementById("selectMateria");
 const inputNota = document.getElementById("inputNota");
 const mensaje = document.getElementById("mensaje");
+const selectDocente = document.getElementById("selectDocente");
 
 const filtroMateria = document.getElementById("filtroMateria");
 const cuerpoTabla = document.getElementById("cuerpoTabla");
@@ -92,7 +100,19 @@ function cargarMaterias() {
     }
 }
 
+function cargarDocentes() {
+    selectDocente.innerHTML = "<option value=''>Seleccione una Docente</option>";
+
+    for(const docente of docentes) {
+        const option = document.createElement("option");
+        option.value = docente;
+        option.textContent = docente;
+        selectDocente.appendChild(option);
+    }
+}
+
 cargarMaterias();
+cargarDocentes();
 //#endregion
 
 // #region Bloque 5: Condicionales y validaciones
