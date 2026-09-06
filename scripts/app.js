@@ -88,15 +88,15 @@ function cargarMaterias() {
     filtroMateria.innerHTML = "<option value='todas'>Todas las materias</option>";
 
     for (const materia of materias) {
-        const opcion = document.createElement("option");
-        opcion.value = materia;
-        opcion.textContent = materia;
-        selectMateria.appendChild(opcion);
+        const option = document.createElement("option");
+        option.value = materia;
+        option.textContent = materia;
+        selectMateria.appendChild(option);
 
-        const opcionFiltro = document.createElement("option");
-        opcionFiltro.value = materia;
-        opcionFiltro.textContent = materia;
-        filtroMateria.appendChild(opcionFiltro);
+        const optionFiltro = document.createElement("option");
+        optionFiltro.value = materia;
+        optionFiltro.textContent = materia;
+        filtroMateria.appendChild(optionFiltro);
     }
 }
 
