@@ -37,15 +37,7 @@ const materias = [
 console.log(`Materias: ${materias.length} materias. La 
     primera es: ${materias[0]} y la última es: ${materias[materias.length - 1]}`);
 
-let alumnos = [
-    {
-        id: 1,
-        nombre: "Juan",
-        nota: 8,
-        materia: materias[0],
-        estado: "Aprobado"
-    }
-];
+let alumnos = [];
 
 let proximoId = 1;
 
@@ -93,8 +85,70 @@ function cargarMaterias() {
     }
 }
 
+function agregarAlumno(nombre, materia, nota) {
+
+    // Creamos un objeto literal con los datos del alumno
+    const nuevoAlumno = {
+        id: proximoId++,
+        nombre: nombre,
+        materia: materia,
+        nota: nota,
+        estado: nota >= NOTA_MINIMA_APROBADO ? "Aprobado" : "Desaprobado"
+    }
+
+    // Agregamos el nuevo alumno al arreglo de alumnos
+    alumnos.push(nuevoAlumno);
+
+
+}
+
+function obtenerAlumnosFiltrados() {
+    const materiaSeleccionada = filtroMateria.value;
+    
+    // Buena práctica: declarar la variable con let (evita crearla como global)
+    let alumnosFiltrados = []; 
+
+    if (materiaSeleccionada === "todas") {
+        alumnosFiltrados = alumnos;
+    } else {
+        // El filtro solo se ejecuta si NO se eligió "todas"
+        alumnosFiltrados = alumnos.filter(function (alumno) {
+            return alumno.materia === materiaSeleccionada;
+        });
+    }
+
+    return alumnosFiltrados;
+}
+
+function renderTabla() {
+
+    const listaAlumnos = obtenerAlumnosFiltrados();
+
+    cuerpoTabla.innerHTML = "";
+
+    if (listaAlumnos.length === 0) {
+        cuerpoTabla.innerHTML = "<tr><td colspan='5'>No hay alumnos para mostrar</td></tr>";
+    }
+
+    for (const alumno of listaAlumnos) {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+            <td>${alumno.nombre}</td>
+            <td>${alumno.materia}</td>
+            <td>${alumno.nota}</td>
+            <td>${alumno.estado}</td>
+            <td><button>Eliminar</button></td>
+        `;
+        cuerpoTabla.appendChild(fila);
+    }
+}
+
 cargarMaterias();
 
+agregarAlumno("Juan Pérez", "Matemática", 8);
+agregarAlumno("María Gómez", "Lengua", 5);
+agregarAlumno("Facundo Citera", "Programación", 10);
+renderTabla();
 //#endregion
 
 // #region Bloque 5: Condicionales y validaciones
