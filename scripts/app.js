@@ -31,7 +31,7 @@ const cuerpoTabla = document.getElementById("cuerpoTabla");
 // Del footer:
 const spanTotalAlumnos = document.getElementById("totalAlumnos");
 const spanPromedioGeneral = document.getElementById("promedioGeneral");
-const totalAprobados = document.getElementById("totalAprobados");
+const spanTotalAprobados = document.getElementById("totalAprobados");
 // #endregion
 
 
@@ -113,6 +113,11 @@ function renderTotalAlumnos() {
 }
 
 function obtenerPromedio() {
+
+    if (alumnos.length === 0) {
+        return 0;
+    }
+
     let notaAcumulada = 0;
     for(const alumno of alumnos) {
         notaAcumulada += alumno.nota
@@ -131,10 +136,11 @@ function obtenerAprobados() {
             cantAprobados++;
         }
     }
+    console.log(cantAprobados);
     return cantAprobados;
 }
 function renderAprobados() {
-    totalAprobados.textContent = obtenerAprobados();
+    spanTotalAprobados.textContent = obtenerAprobados();
 }
 
 renderTotalAlumnos();
