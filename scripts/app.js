@@ -1,8 +1,4 @@
 // #region BLOQUE 1: Variables y tipos de datos
-const nombreEscuela = "UTN - Facultad Regional Paraná";
-const anioLectivo = 2026;
-const cursoActivo = true;
-
 const NOTA_MINIMA_APROBADO = 6;
 // #endregion
 
@@ -24,7 +20,6 @@ const inputNombre = document.getElementById("inputNombre");
 const selectMateria = document.getElementById("selectMateria");
 const inputNota = document.getElementById("inputNota");
 const mensaje = document.getElementById("mensaje");
-const selectDocente = document.getElementById("selectDocente");
 const filtroMateria = document.getElementById("filtroMateria");
 const cuerpoTabla = document.getElementById("cuerpoTabla");
 
@@ -98,12 +93,7 @@ function renderTabla() {
 }
 
 cargarMaterias();
-agregarAlumno("Juan Pérez", "Matemática", 8);
-agregarAlumno("María Gómez", "Lengua", 5);
-agregarAlumno("Facundo Citera", "Programación", 10);
-agregarAlumno("Nicolás Valdez", "Programación", 8);
-agregarAlumno("Julian Caudis", "Programación", 9);
-renderTabla();
+
 
 function obtenerTotalAlumnos() {
     return alumnos.length;
@@ -152,6 +142,39 @@ renderAprobados();
 // #endregion
 
 //#region BLOQUE 6: Eventos
+
+function actualizarVista() {
+    renderTabla();
+    renderTotalAlumnos();
+    renderPromedio();
+    renderAprobados();
+}
+
+formAlumno.addEventListener("submit", function(evento) {
+
+    evento.preventDefault(); //Evitar que la página se recargue
+
+    const nombre = inputNombre.value.trim();
+    const materia = selectMateria.value;
+    const nota = Number(inputNota.value);
+
+    if (nombre === "" || materia === "" || isNaN(nota)) {
+            mensaje.textContent = "Error: Por favor, completa todos los campos.";
+            return; // El 'return' corta la ejecución aquí, no sigue hacia abajo.
+    }
+
+    agregarAlumno(nombre,materia,nota);
+
+    actualizarVista();
+
+    mensaje.textContent = `Se agregó el alumno ${nombre}.`;
+
+    formAlumno.reset();
+
+    setTimeout(() => {
+        mensaje.textContent = "";
+    }, 3000);
+});
 //#endregion
 
 
