@@ -153,7 +153,6 @@ function actualizarVista() {
 formAlumno.addEventListener("submit", function(evento) {
 
     evento.preventDefault(); //Evitar que la página se recargue
-
     const nombre = inputNombre.value.trim();
     const materia = selectMateria.value;
     const nota = Number(inputNota.value);
@@ -175,6 +174,11 @@ formAlumno.addEventListener("submit", function(evento) {
         mensaje.textContent = "";
     }, 3000);
 });
+
+filtroMateria.addEventListener("change", function() {
+    renderTabla();
+});
+
 //#endregion
 
 
