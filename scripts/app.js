@@ -59,6 +59,19 @@ function agregarAlumno(nombre, materia, nota) {
     alumnos.push(nuevoAlumno);
 }
 
+function cargarAlumnosDePrueba() {
+    // Usamos la misma función que usa el formulario para que se les asigne un ID y estado automáticamente
+    agregarAlumno("Juan Pérez", "Matemática", 8);
+    agregarAlumno("María Gómez", "Lengua", 5);
+    agregarAlumno("Facundo Citera", "Programación", 10);
+    agregarAlumno("Ana López", "Historia", 9);
+    agregarAlumno("Pedro Martínez", "Matemática", 4);
+    agregarAlumno("Lucía Fernández", "Lengua", 7);
+
+    // Actualizamos toda la pantalla de una sola vez
+    actualizarVista(); 
+}
+
 function obtenerAlumnosFiltrados() {
     const materiaSeleccionada = filtroMateria.value;
     let alumnosFiltrados = []; 
@@ -86,14 +99,14 @@ function renderTabla() {
             <td>${alumno.materia}</td>
             <td>${alumno.nota}</td>
             <td>${alumno.estado}</td>
-            <td><button>Eliminar</button></td>
+            <td><button onclick="eliminarAlumno(${alumno.id})">Eliminar</button></td>
         `;
         cuerpoTabla.appendChild(fila);
     }
 }
 
 cargarMaterias();
-
+cargarAlumnosDePrueba();
 
 function obtenerTotalAlumnos() {
     return alumnos.length;
@@ -150,6 +163,7 @@ function actualizarVista() {
     renderAprobados();
 }
 
+// Agregar Alumno
 formAlumno.addEventListener("submit", function(evento) {
 
     evento.preventDefault(); //Evitar que la página se recargue
@@ -157,13 +171,19 @@ formAlumno.addEventListener("submit", function(evento) {
     const materia = selectMateria.value;
     const nota = Number(inputNota.value);
 
+    // 1. Validación de campos vacíos
     if (nombre === "" || materia === "" || isNaN(nota)) {
             mensaje.textContent = "Error: Por favor, completa todos los campos.";
             return; // El 'return' corta la ejecución aquí, no sigue hacia abajo.
     }
+    // 2. NUEVA VALIDACIÓN: Que la nota esté en el rango correcto
+    if (nota < 1 || nota > 10) {
+        mensaje.textContent = "Error: La nota debe ser un número entre 1 y 10.";
+        return; // Cortamos la ejecución para que no se guarde
+    }
 
     agregarAlumno(nombre,materia,nota);
-
+    
     actualizarVista();
 
     mensaje.textContent = `Se agregó el alumno ${nombre}.`;
@@ -175,9 +195,21 @@ formAlumno.addEventListener("submit", function(evento) {
     }, 3000);
 });
 
+// Mostrar alumnos por materia
 filtroMateria.addEventListener("change", function() {
-    renderTabla();
+    actualizarVista();
 });
+
+//Eliminar alumno
+function eliminarAlumno(id) {
+    // Obtengo los alumnos que no coincidan con ese id.
+    alumnos = alumnos.filter(function(alumno) {
+        return alumno.id !== id;
+    });
+
+    actualizarVista();
+}
+
 
 //#endregion
 
