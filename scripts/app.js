@@ -61,8 +61,8 @@ const filtroMateria = document.getElementById("filtroMateria");
 const cuerpoTabla = document.getElementById("cuerpoTabla");
 
 // Del footer:
-const totalAlumnos = document.getElementById("totalAlumnos");
-const promedioGeneral = document.getElementById("promedioGeneral");
+const spanTotalAlumnos = document.getElementById("totalAlumnos");
+const spanPromedioGeneral = document.getElementById("promedioGeneral");
 const totalAprobados = document.getElementById("totalAprobados");
 // #endregion
 
@@ -154,3 +154,28 @@ renderTabla();
 // #region Bloque 5: Condicionales y validaciones
 
 // #endregion
+
+function obtenerTotalAlumnos() {
+    return alumnos.length;
+}
+function renderTotalAlumnos() {
+    spanTotalAlumnos.textContent = alumnos.length;
+}
+
+
+function obtenerPromedio() {
+    let notaAcumulada = 0;
+    for(const alumno of alumnos) {
+        notaAcumulada += alumno.nota
+    }
+    const promedio =  (notaAcumulada / alumnos.length);
+    return promedio;
+}
+function renderPromedio() {
+    spanPromedioGeneral.textContent = obtenerPromedio().toFixed(2);
+}
+
+
+
+renderTotalAlumnos();
+renderPromedio();
