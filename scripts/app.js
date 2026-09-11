@@ -1,8 +1,8 @@
-// #region BLOQUE 1: Variables y tipos de datos
+// #region   ------------------------------- BLOQUE 1: DECLARAR VARIABLES Y TIPOS DE DATOS -------------------------------
 const NOTA_MINIMA_APROBADO = 6;
 // #endregion
 
-// #region BLOQUE 2: Arreglos y objetos
+// #region  ------------------------------- BLOQUE 2: DECLARAR OBJETOS -------------------------------
 const materias = [
     "Matemática",
     "Lengua", 
@@ -14,7 +14,7 @@ let alumnos = [];
 let proximoId = 1;
 // #endregion
 
-// #region BLOQUE 3: Pescar los elementos del HTML (del DOM)
+// #region BLOQUE 3: ------------------------------- BLOQUE 3: PESCAR ELEMENTOS DEL HTML(DOM) -------------------------------
 const formAlumno = document.getElementById("formAlumno");
 const inputNombre = document.getElementById("inputNombre");
 const selectMateria = document.getElementById("selectMateria");
@@ -30,7 +30,7 @@ const spanTotalAprobados = document.getElementById("totalAprobados");
 // #endregion
 
 
-// #region BLOQUE 5: FUNCIONES
+// #region ------------------------------- BLOQUE 4:FUNCIONES -------------------------------
 function cargarMaterias() {
     selectMateria.innerHTML = "<option value=''>Seleccione una materia</option>";
     filtroMateria.innerHTML = "<option value='todas'>Todas las materias</option>";
@@ -60,7 +60,6 @@ function agregarAlumno(nombre, materia, nota) {
 }
 
 function cargarAlumnosDePrueba() {
-    // Usamos la misma función que usa el formulario para que se les asigne un ID y estado automáticamente
     agregarAlumno("Juan Pérez", "Matemática", 8);
     agregarAlumno("María Gómez", "Lengua", 5);
     agregarAlumno("Facundo Citera", "Programación", 10);
@@ -146,16 +145,23 @@ function renderAprobados() {
     spanTotalAprobados.textContent = obtenerAprobados();
 }
 
+//Eliminar alumno
+function eliminarAlumno(id) {
+    // Obtengo los alumnos que no coincidan con ese id.
+    alumnos = alumnos.filter(function(alumno) {
+        return alumno.id !== id;
+    });
+
+    actualizarVista();
+}
+
 renderTotalAlumnos();
 renderPromedio();
 renderAprobados();
 //#endregion
 
-// #region BLOQUE 5: Condicionales y validaciones
-// #endregion
 
-//#region BLOQUE 6: Eventos
-
+//#region ------------------------------- BLOQUE 5: Eventos -------------------------------
 function actualizarVista() {
     renderTabla();
     renderTotalAlumnos();
@@ -199,18 +205,6 @@ formAlumno.addEventListener("submit", function(evento) {
 filtroMateria.addEventListener("change", function() {
     actualizarVista();
 });
-
-//Eliminar alumno
-function eliminarAlumno(id) {
-    // Obtengo los alumnos que no coincidan con ese id.
-    alumnos = alumnos.filter(function(alumno) {
-        return alumno.id !== id;
-    });
-
-    actualizarVista();
-}
-
-
 //#endregion
 
 
