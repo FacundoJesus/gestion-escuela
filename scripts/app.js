@@ -176,6 +176,19 @@ function renderPromedio() {
 }
 
 
+function obtenerAprobados() {
+    let cantAprobados = 0;
+    for(const alumno of alumnos) {
+        if (alumno.estado === 'Aprobado'){
+            cantAprobados++;
+        }
+    }
+    return cantAprobados;
+}
+function renderAprobados() {
+    totalAprobados.textContent = obtenerAprobados();
+}
 
 renderTotalAlumnos();
 renderPromedio();
+renderAprobados();
