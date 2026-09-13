@@ -5,7 +5,7 @@ const NOTA_MINIMA_APROBADO = 6;
 // #region  ------------------------------- BLOQUE 2: DECLARAR OBJETOS -------------------------------
 const materias = [
     "Matemática",
-    "Lengua", 
+    "Lengua",
     "Programación",
     "Historia"
 ];
@@ -68,12 +68,12 @@ function cargarAlumnosDePrueba() {
     agregarAlumno("Lucía Fernández", "Lengua", 7);
 
     // Actualizamos toda la pantalla de una sola vez
-    actualizarVista(); 
+    actualizarVista();
 }
 
 function obtenerAlumnosFiltrados() {
     const materiaSeleccionada = filtroMateria.value;
-    let alumnosFiltrados = []; 
+    let alumnosFiltrados = [];
     if (materiaSeleccionada === "todas") {
         alumnosFiltrados = alumnos;
     } else {
@@ -93,12 +93,13 @@ function renderTabla() {
 
     for (const alumno of listaAlumnos) {
         const fila = document.createElement("tr");
+        const claseEstado = alumno.estado === "Aprobado" ? "estado-aprobado" : "estado-desaprobado";
         fila.innerHTML = `
             <td>${alumno.nombre}</td>
             <td>${alumno.materia}</td>
             <td>${alumno.nota}</td>
-            <td>${alumno.estado}</td>
-            <td><button onclick="eliminarAlumno(${alumno.id})">Eliminar</button></td>
+            <td><span class="${claseEstado}">${alumno.estado}</span></td>
+            <td><button class="btn-eliminar" onclick="eliminarAlumno(${alumno.id})">Eliminar</button></td>
         `;
         cuerpoTabla.appendChild(fila);
     }
@@ -121,10 +122,10 @@ function obtenerPromedio() {
     }
 
     let notaAcumulada = 0;
-    for(const alumno of alumnos) {
+    for (const alumno of alumnos) {
         notaAcumulada += alumno.nota
     }
-    const promedio =  (notaAcumulada / alumnos.length);
+    const promedio = (notaAcumulada / alumnos.length);
     return promedio;
 }
 function renderPromedio() {
@@ -133,8 +134,8 @@ function renderPromedio() {
 
 function obtenerAprobados() {
     let cantAprobados = 0;
-    for(const alumno of alumnos) {
-        if (alumno.nota >= NOTA_MINIMA_APROBADO){
+    for (const alumno of alumnos) {
+        if (alumno.nota >= NOTA_MINIMA_APROBADO) {
             cantAprobados++;
         }
     }
@@ -148,7 +149,7 @@ function renderAprobados() {
 //Eliminar alumno
 function eliminarAlumno(id) {
     // Obtengo los alumnos que no coincidan con ese id.
-    alumnos = alumnos.filter(function(alumno) {
+    alumnos = alumnos.filter(function (alumno) {
         return alumno.id !== id;
     });
 
@@ -170,7 +171,7 @@ function actualizarVista() {
 }
 
 // Agregar Alumno
-formAlumno.addEventListener("submit", function(evento) {
+formAlumno.addEventListener("submit", function (evento) {
 
     evento.preventDefault(); //Evitar que la página se recargue
     const nombre = inputNombre.value.trim();
@@ -179,8 +180,8 @@ formAlumno.addEventListener("submit", function(evento) {
 
     // 1. Validación de campos vacíos
     if (nombre === "" || materia === "" || isNaN(nota)) {
-            mensaje.textContent = "Error: Por favor, completa todos los campos.";
-            return; // El 'return' corta la ejecución aquí, no sigue hacia abajo.
+        mensaje.textContent = "Error: Por favor, completa todos los campos.";
+        return; // El 'return' corta la ejecución aquí, no sigue hacia abajo.
     }
     // 2. NUEVA VALIDACIÓN: Que la nota esté en el rango correcto
     if (nota < 1 || nota > 10) {
@@ -188,8 +189,8 @@ formAlumno.addEventListener("submit", function(evento) {
         return; // Cortamos la ejecución para que no se guarde
     }
 
-    agregarAlumno(nombre,materia,nota);
-    
+    agregarAlumno(nombre, materia, nota);
+
     actualizarVista();
 
     mensaje.textContent = `Se agregó el alumno ${nombre}.`;
@@ -202,7 +203,7 @@ formAlumno.addEventListener("submit", function(evento) {
 });
 
 // Mostrar alumnos por materia
-filtroMateria.addEventListener("change", function() {
+filtroMateria.addEventListener("change", function () {
     actualizarVista();
 });
 //#endregion
