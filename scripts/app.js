@@ -4,7 +4,7 @@ const NOTA_MINIMA_APROBADO = 6;
 
 // #region  ------------------------------- BLOQUE 2: DECLARAR OBJETOS -------------------------------
 const materias = [
-    "Matemática",
+    "Matemáticas",
     "Lengua",
     "Programación",
     "Historia"
@@ -60,11 +60,11 @@ function agregarAlumno(nombre, materia, nota) {
 }
 
 function cargarAlumnosDePrueba() {
-    agregarAlumno("Juan Pérez", "Matemática", 8);
+    agregarAlumno("Juan Pérez", "Matemáticas", 8);
     agregarAlumno("María Gómez", "Lengua", 5);
     agregarAlumno("Facundo Citera", "Programación", 10);
     agregarAlumno("Ana López", "Historia", 9);
-    agregarAlumno("Pedro Martínez", "Matemática", 4);
+    agregarAlumno("Pedro Martínez", "Matemáticas", 4);
     agregarAlumno("Lucía Fernández", "Lengua", 7);
 
     // Actualizamos toda la pantalla de una sola vez
