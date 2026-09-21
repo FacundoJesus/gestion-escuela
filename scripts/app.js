@@ -207,5 +207,3 @@ filtroMateria.addEventListener("change", function () {
     actualizarVista();
 });
 //#endregion
-
-
