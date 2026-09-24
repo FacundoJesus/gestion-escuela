@@ -1,91 +1,94 @@
 <html lang="es">
-    <head> 
-        <title>Gestión de escuela</title>
-        <meta charset="UTF-8"> 
-        <meta name="viewport" content="width=device-width,initial-scale=1.0"> 
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
+<head>
+    <title>Gestión de escuela</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
 
-    <body>
-        <header>
-            <h1>Gestión de escuela</h1>
-            <p class="subtitulo">
-                Clase 1: Fundamentos de JavaScript
-            </p>
-        </header>  
-    
-        <main>
-            <!-- Seccion: 1: CARGAR ALUMNO -->
-            <section class="tarjeta">
-                <h2>Cargar alumno</h2>
-                <form id="formAlumno" novalidate>
-                    <div>
-                        <label for="inputNombre">Nombre del alumno</label>
-                        <input type="text" id="inputNombre" placeholder="Ejemplo: Perez Gil" autocomplete="off">
-                    </div>
+<body>
+    <header>
+        <h1>Gestión de escuela</h1>
+        <p class="subtitulo">
+            Bienvenidos al Sistema de Alumnos
+        </p>
+    </header>
 
-                    <div>
-                        <label for="selectMateria">Materia</label>
-                        <select id="selectMateria"></select>
-                    </div>
-
-                    <div>
-                        <label for="inputNota">Nota (1-10)</label>
-                        <input type="number" id="inputNota" min="1" max="10" step="1" placeholder="Ej. 8">
-                    </div>
-
-                    <button type="submit">
-                        Agregar alumno
-                    </button>
-                </form>
-                <p class="mensaje" id="mensaje"></p>
-            </section >
-           
-            <!-- Seccion: 2: CARGAR ALUMNO -->
-            <section class="tarjeta">
-                 <h2>Listado de alumnos</h2>
-                 <div class="campo campo-filtro">
-                    <!--for permite linkear el evento focus al elemento id del mismo nombre-->
-                    <label for="filtroMateria">Filtrar por materia</label>
-                    <select id="filtroMateria"></select>
-                    <!-- Seccion: 3: TABLA-->
-                     <table>
-                        <thead> 
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Materia</th>
-                                <th>Nota</th>
-                                <th>Estado</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="cuerpoTabla">
-                            
-                        </tbody>
-                     </table>
-                 </div>
-            </section>
-
-            <!-- Seccion: 3: ESTADISTICAS -->
-            <section class="tarjeta estadisticas">
-                <div class="stat">
-                    <span class="stat-numero" id="totalAlumnos">5</span>Alumnos
+    <main>
+        <!-- Seccion: 1: CARGAR ALUMNO -->
+        <section class="tarjeta">
+            <h2>Cargar Alumno</h2>
+            <form id="formAlumno" novalidate>
+                <div class="campo">
+                    <label for="inputNombre">Nombre del alumno</label>
+                    <input type="text" id="inputNombre" placeholder="Ejemplo: Perez Gil" autocomplete="off">
                 </div>
-                <div class="stat">
-                    <span class="stat-numero" id="promedioGeneral">6.9</span>Promedio
-                </div>
-                <div class="stat">
-                    <span class="stat-numero" id="totalAprobados">4</span>Aprobados
-                </div>
-            </section>
-        </main>
 
-        <footer>
-            <p>Abri la consola del navegrador con <kbd>F12</kbd>
-                para ver los mensajes de la clase.
-            </p>
-        </footer>
-        <script src="scripts/app.js"></script>
-    </body>
+                <div class="campo">
+                    <label for="selectMateria">Materia</label>
+                    <select class="selectMateria" id="selectMateria"></select>
+                </div>
+
+                <div class="campo">
+                    <label for="inputNota">Nota (1-10)</label>
+                    <input type="number" id="inputNota" min="1" max="10" step="1" placeholder="Ej. 8">
+                </div>
+
+                <button type="submit">
+                    Agregar alumno
+                </button>
+            </form>
+            <p class="mensaje" id="mensaje"></p>
+        </section>
+
+        <!-- Seccion: 2: Listado de alumnos -->
+        <section class="tarjeta">
+            <h2>Listado de Alumnos</h2>
+            <div class="campo campo-filtro">
+                <!--for permite linkear el evento focus al elemento id del mismo nombre-->
+                <label for="filtroMateria">Filtrar por materia</label>
+                <select id="filtroMateria"></select>
+            </div>
+            <!-- Seccion: 3: TABLA-->
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Materia</th>
+                            <th>Nota</th>
+                            <th>Estado</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTabla">
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Seccion: 3: ESTADISTICAS -->
+        <section class="tarjeta estadisticas">
+            <div class="stat">
+                <span class="stat-numero" id="totalAlumnos"></span>
+                <span class="stat-etiqueta">Alumnos</span>
+            </div>
+            <div class="stat">
+                <span class="stat-numero" id="promedioGeneral"></span>
+                <span class="stat-etiqueta">Promedio</span>
+            </div>
+            <div class="stat">
+                <span class="stat-numero" id="totalAprobados"></span>
+                <span class="stat-etiqueta">Aprobados</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Este es un proyecto con fines didácticos realizado para la asignatura de Programación IV - FRP-UTN</p>
+    </footer>
+    <script src="scripts/app.js"></script>
+</body>
 
 </html>
